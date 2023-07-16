@@ -1,0 +1,7 @@
+modules:
+  - tlog.app/go/tlog
+  - tlog.app/go/eazy
+
+replace:
+  - prefix: tlog.app/go/
+    repo: https://github.com/tlog-dev/
