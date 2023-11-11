@@ -1,6 +1,8 @@
 modules:
-  - tlog.app/go/tlog
   - tlog.app/go/eazy
+  - tlog.app/go/errors
+  - tlog.app/go/loc
+  - tlog.app/go/tlog
 
 replace:
   - prefix: tlog.app/go/
