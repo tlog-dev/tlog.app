@@ -1,0 +1,39 @@
+name: Vanity Generator
+
+on:
+  push:
+    branches: [ "master", "*" ]
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Generate Vanity Files
+        uses: nikandfor/vanity-go@master
+        with:
+          vanity_file: vanity.yaml
+          output_dir: _site
+          generator_version: master
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
