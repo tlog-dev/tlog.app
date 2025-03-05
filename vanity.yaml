@@ -2,14 +2,12 @@ modules:
   - tlog.app/go/eazy
   - tlog.app/go/errors
   - tlog.app/go/loc
-  - tlog.app/go/tlog
-  - module: tlog.app/go/tlog/cmd/tlog
-    repo_root: tlog.app/go/tlog
-  - module: tlog.app/go/tlog/ext/tlgin
-    repo_root: tlog.app/go/tlog
-  - module: tlog.app/go/tlog/ext/tlclick
-    repo_root: tlog.app/go/tlog
+  - tlog.app/go/tlog:
+    - /
+    - /cmd/tlog
+    - /ext/tlgin
+    - /ext/tlclick
 
 replace:
   - prefix: tlog.app/go/
-    repo: https://github.com/tlog-dev/
+    url: https://github.com/tlog-dev/
